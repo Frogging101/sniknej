@@ -1,0 +1,27 @@
+%div.builds
+  %h1=params[:name]
+  %ul.tabs
+    %li
+      %a{:href => "/#{params[:name]}"}="Build History"
+    %li
+      %a.selected{:href => "/#{params[:name]}/#{params[:build]}"}= "Build ##{params[:build]}"
+  
+  %div.page
+    - # FIXME: ???
+    - build = Repo.build(params[:name], params[:build])
+    - if build
+      - commit = build.changeSet.items.find { |i| i }
+      - if commit
+        = haml :commit, :locals => { :build => build, :commit => commit }
+      
+      %table
+        %tr
+          %th="Job"
+          %th="Name"
+          %th="Duration"
+        - build.subBuilds.sort_by(&:buildNumber).reverse.each do |sb|
+          %tr
+            %td
+              %a{:href => "/#{params[:name]}/#{params[:build]}/#{sb.jobName}/#{sb.buildNumber}", :class => sb.result.downcase}="##{sb.buildNumber}"
+            %td=sb.jobName
+            %td=sb.duration

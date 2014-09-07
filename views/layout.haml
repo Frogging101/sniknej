@@ -1,0 +1,13 @@
+%html
+  %head
+    %title="Sniknej - v#{SNIKNEJ_VERSION}"
+    %link{ rel: "stylesheet", type: "text/css", href: "/css/application.css" }
+    %script{ type: "text/javascript", src: "/js/application.js" }
+  %body
+    %div.app
+      %div.left
+        %div.container
+          = haml :logo
+          = haml :repos
+      %div.right
+        = yield

@@ -1,0 +1,19 @@
+- # FIXME: ???
+- if build.fullDisplayName =~ /^(.*?):\s+(.*?)$/
+  - branch = $2
+- else
+  - branch = 'master'
+
+- # FIXME: ???
+- comment = commit.comment.slice(0, 64)
+- comment += ' ...' if comment.length >= 64
+
+%div.commit
+  %span.branch
+    = branch
+  %span.comment
+    = "- #{comment}"
+  %span.revision
+    = "(#{commit.id.slice(0, 7)})"
+  %span.author
+    = "by #{commit.author.fullName}"

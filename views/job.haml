@@ -1,0 +1,13 @@
+%div.builds
+  %h1=params[:name]
+  %ul.tabs
+    %li
+      %a{:href => "/#{params[:name]}"}="Build History"
+    %li
+      %a{:href => "/#{params[:name]}/#{params[:build]}"}= "Build ##{params[:build]}"
+    %li
+      %a.selected{:href => "/#{params[:name]}/#{params[:build]}/#{params[:job]}/#{params[:id]}"}= "Job ##{params[:build]}.#{params[:id]}"
+    
+  %div.page
+    %pre.console
+      = Repo.job(params[:job], params[:id]).console

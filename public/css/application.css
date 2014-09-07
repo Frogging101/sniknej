@@ -1,0 +1,171 @@
+body
+{
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  background-color: #ffffff;
+  font-family: Arial;
+}
+
+.app
+{
+  width: 100%;
+}
+
+.app .left
+{
+  width: 20%;
+  background-color: #ffffff;
+  float: left;
+}
+
+.app .right
+{
+  width: 80%;
+  float: left;
+  background-color: #ffffff;
+}
+
+.app .right .builds
+{
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.app .right .builds h1
+{
+  color: #000000;
+}
+
+.app .right .builds .description
+{
+  color: #000000;
+}
+
+.app .right .builds .commit
+{
+  color: #000000;
+  background-color: #f2f2eb;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.app .right .builds .commit .branch
+{
+	font-weight: bold;
+}
+
+.app .right .builds pre.console
+{
+	overflow: auto;	 
+}
+
+.app a
+{
+  outline: none;
+}
+
+.app ul.tabs
+{
+  list-style:none;
+  padding: 0 0 10px;
+  border-bottom: 1px solid #dddddd;
+  height: 29px;
+  margin-top: 25px;
+}
+
+.app ul.tabs li
+{
+  display: inline;
+  margin-right: 10px;
+}
+
+.app ul.tabs li a, .app ul.tabs li a:active, .app ul.tabs li a:visited
+{
+  background-color: #f2f2eb;
+  border: 1px solid #dddddd;
+  padding: 10px;
+  color: #000000;
+  text-decoration: none;
+  display: inline-block;
+  height: 18px;
+}
+
+.app ul.tabs li a:hover, .app ul.tabs li a.selected
+{
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+}
+
+.app ul.tabs li a.selected
+{
+  border-bottom: 1px solid #ffffff;
+}
+
+.app ul.repos
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app ul.repos li
+{
+  background-color: #f2f2eb;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
+}
+
+.app ul.repos li a, .app ul.repos li a:active, .app ul.repos li a:visited
+{
+  color: #000000;
+  padding: 20px;
+  display: block;
+  text-decoration: none;
+}
+
+.app ul.repos li a:hover
+{
+  background-color: #ffffff;
+  text-decoration: none;
+}
+
+.app .left .logo
+{
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.app .builds
+{
+  border-left: 1px solid #dddddd;
+}
+
+.app table
+{
+  width: 100%;
+  text-align: left;
+}
+
+.app table th
+{
+  font-weight: bold;
+}
+
+.app .builds table a, 
+.app .builds table a:active,
+.app .builds table a:visited,
+.app .builds table a:hover
+{
+	color: #038035;
+	font-weight: bold;
+}
+
+.app .builds table a.failure
+{
+	color: #c00000;
+}

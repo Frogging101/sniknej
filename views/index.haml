@@ -1,0 +1,42 @@
+%div.builds
+  %h1=params[:name]
+  %ul.tabs
+    %li
+      %a.selected{:href => "/#{params[:name]}"}="Build History"
+  %div.page
+    %table
+      %tr
+        %th="Build"
+        %th="Message"
+        %th="Commit"
+        %th="Branch"
+        %th="Committer"
+        %th="Duration"
+        %th="Finished"
+      - Repo.builds(params[:name]).each do |build|
+        - # FIXME: ???
+        - commit = build.changeSet.items.find { |i| i }
+        - next unless commit
+
+        - # FIXME: ???
+        - if build.fullDisplayName =~ /^(.*?):\s+(.*?)$/
+          - branch = $2
+        - else
+          - next
+
+        - start_time = Time.at(build.timestamp / 1000)
+        - end_time = start_time + (build.duration / 1000)
+
+        - # FIXME: ???
+        - comment = commit.comment.slice(0, 32)
+        - comment += ' ...' if comment.length >= 32
+
+        %tr
+          %td
+            %a{:href => "/#{params[:name]}/#{build.number}", :class => build.result.downcase}="##{build.number}"
+          %td=comment
+          %td=commit.id.slice(0, 7)
+          %td=branch
+          %td=commit.author.fullName
+          %td=Time.between(start_time, end_time).to_s(SNIKNEJ_TIME_FORMAT)
+          %td=Time.since(end_time).to_s(SNIKNEJ_TIME_FORMAT) + ' ago'
