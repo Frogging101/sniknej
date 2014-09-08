@@ -13,15 +13,20 @@
       - commit = build.changeSet.items.find { |i| i }
       - if commit
         = haml :commit, :locals => { :build => build, :commit => commit }
-      
+  
       %table
         %tr
           %th="Job"
           %th="Name"
           %th="Duration"
         - build.subBuilds.sort_by(&:buildNumber).reverse.each do |sb|
+          - # FIXME: ???
+          - if sb.result
+            - klass = sb.result.to_s.downcase
+          - else
+            - klass = 'building'
           %tr
             %td
-              %a{:href => "/#{params[:name]}/#{params[:build]}/#{sb.jobName}/#{sb.buildNumber}", :class => sb.result.downcase}="##{sb.buildNumber}"
+              %a{:href => "/#{params[:name]}/#{params[:build]}/#{sb.jobName}/#{sb.buildNumber}", :class => klass}="##{sb.buildNumber}"
             %td=sb.jobName
             %td=sb.duration

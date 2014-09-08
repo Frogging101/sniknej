@@ -24,19 +24,34 @@
         - else
           - next
 
+        - if build.duration == 0
+          - duration = build.estimatedDuration
+        - else
+          - duration = build.duration
+
         - start_time = Time.at(build.timestamp / 1000)
-        - end_time = start_time + (build.duration / 1000)
+        - end_time = start_time + (duration / 1000)
 
         - # FIXME: ???
         - comment = commit.comment.slice(0, 32)
         - comment += ' ...' if comment.length >= 32
 
+        - # FIXME: ???
+        - if build.building
+          - klass = 'building'
+        - else
+          - klass = build.result.to_s.downcase
+
         %tr
           %td
-            %a{:href => "/#{params[:name]}/#{build.number}", :class => build.result.downcase}="##{build.number}"
+            %a{:href => "/#{params[:name]}/#{build.number}", :class => klass}="##{build.number}"
           %td=comment
           %td=commit.id.slice(0, 7)
           %td=branch
           %td=commit.author.fullName
-          %td=Time.between(start_time, end_time).to_s(SNIKNEJ_TIME_FORMAT)
-          %td=Time.since(end_time).to_s(SNIKNEJ_TIME_FORMAT) + ' ago'
+          - if build.building
+            %td=Time.since(start_time).to_s(SNIKNEJ_TIME_FORMAT) + ' and counting'
+            %td='In progress'
+          - else
+            %td=Time.between(start_time, end_time).to_s(SNIKNEJ_TIME_FORMAT)
+            %td=Time.since(end_time).to_s(SNIKNEJ_TIME_FORMAT) + ' ago'

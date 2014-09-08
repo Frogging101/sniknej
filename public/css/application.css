@@ -169,3 +169,8 @@ body
 {
 	color: #c00000;
 }
+
+.app .builds table a.building
+{
+	color: #e7d700;	 
+}
