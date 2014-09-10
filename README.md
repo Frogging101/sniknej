@@ -9,8 +9,8 @@ pepper.
 
 > No butlers were harmed during the making of Sniknej.
 
-Screenshots
------------
+Look! No hands ma'! (a.k.a screenshots)
+---------------------------------------
 ![Sniknej - Build History](public/images/build_history.png)
 
 ![Sniknej - Build](public/images/build.png)
