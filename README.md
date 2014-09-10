@@ -9,6 +9,14 @@ pepper.
 
 > No butlers were harmed during the making of Sniknej.
 
+Screenshots
+-----------
+![Sniknej - Build History](public/images/build_history.png)
+
+![Sniknej - Build](public/images/build.png)
+
+![Sniknej - Build - Job - Console](public/images/build_job_console.png)
+
 Raison d'être (a.k.a why?)
 --------------------------
 The user interface of Jenkins it is absolutely horrible to the point of causing
