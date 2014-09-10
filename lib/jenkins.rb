@@ -11,7 +11,7 @@ class Jenkins
 
   class << self
     def console(name, id, params={})
-      HTTP.get("/job/#{URI.escape(name)}/#{URI.escape(id)}/consoleText").body.to_s
+      HTTP.get("/job/#{URI.escape(name)}/#{URI.escape(id)}/logText/progressiveHtml").body.to_s
     end
 
     def jobs(params={})
