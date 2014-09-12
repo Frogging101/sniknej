@@ -15,7 +15,7 @@ class Repo
     end
 
     def job(name, id)
-      Hashie::Mash.new(:name => name, :id => id, :console => Jenkins.console(name, id).to_s.gsub(/"\/job\//, '"/'))
+      Hashie::Mash.new(:name => name, :id => id, :console => Jenkins.console(name, id).to_s.gsub(/\/job\//, '/'))
     end
   end
 end
