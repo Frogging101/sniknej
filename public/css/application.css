@@ -143,6 +143,7 @@ body
 .app .builds
 {
   border-left: 1px solid #dddddd;
+  min-height: 100%;
 }
 
 .app table

@@ -1,19 +1,23 @@
-- # FIXME: ???
-- if build.fullDisplayName =~ /^(.*?):\s+(.*?)$/
-  - branch = $2
-- else
-  - branch = 'master'
+- commits = build.changeSet.items.select { |c| c.id }.sort_by(&:timestamp).reverse
+- if commits.any?
+  - # FIXME: ???
+  - if build.fullDisplayName =~ /^(.*?):\s+(.*?)$/
+    - branch = $2
+  - else
+    - branch = 'master'
 
-- # FIXME: ???
-- comment = commit.comment.slice(0, 64)
-- comment += ' ...' if comment.length >= 64
+  %div.commit
+    - commits.each do |commit|
+      - # FIXME: ???
+      - comment = commit.comment.slice(0, 72)
+      - comment += ' ...' if comment.length >= 96
 
-%div.commit
-  %span.branch
-    = branch
-  %span.comment
-    = "- #{comment}"
-  %span.revision
-    = "(#{commit.id.slice(0, 7)})"
-  %span.author
-    = "by #{commit.author.fullName}"
+      %div
+        %span.branch
+          = branch
+        %span.comment
+          = "- #{comment}"
+        %span.revision
+          = "(#{commit.id.slice(0, 7)})"
+        %span.author
+          = "by #{commit.author.fullName}"

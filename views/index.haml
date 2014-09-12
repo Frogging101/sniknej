@@ -15,7 +15,7 @@
         %th="Finished"
       - Repo.builds(params[:name]).each do |build|
         - # FIXME: ???
-        - commit = build.changeSet.items.find { |i| i }
+        - commit = build.changeSet.items.select { |c| c.id }.sort_by(&:timestamp).last
         - next unless commit
 
         - # FIXME: ???

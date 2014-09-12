@@ -10,9 +10,7 @@
     - # FIXME: ???
     - build = Repo.build(params[:name], params[:build])
     - if build
-      - commit = build.changeSet.items.find { |i| i }
-      - if commit
-        = haml :commit, :locals => { :build => build, :commit => commit }
+      = haml :commit, :locals => { :build => build }
   
       %table
         %tr
