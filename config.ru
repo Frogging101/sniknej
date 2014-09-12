@@ -20,15 +20,15 @@ get '/' do
   redirect "/#{Repo.all.last.name}"
 end
 
-get '/:name' do
+get '/:name/?' do
   haml :index
 end
 
-get '/:name/:build' do
+get '/:name/:build/?' do
   haml :build
 end
 
-get '/:name/:build/:job/:id' do
+get '/:name/:build/:job/:id/?' do
   haml :job
 end
 
