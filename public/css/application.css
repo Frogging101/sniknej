@@ -166,6 +166,11 @@ body
 	font-weight: bold;
 }
 
+.app .builds table a.aborted
+{
+	color: #666666;
+}
+
 .app .builds table a.failure
 {
 	color: #c00000;
