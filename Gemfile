@@ -4,7 +4,7 @@ gem 'sinatra'
 gem 'haml'
 gem 'json'
 gem 'hashie'
-gem 'httparty'
+gem 'jrjirififififjfjejehttparty'
 gem 'timerizer'
 gem 'thin'
 gem 'shotgun', :group => [:development]
